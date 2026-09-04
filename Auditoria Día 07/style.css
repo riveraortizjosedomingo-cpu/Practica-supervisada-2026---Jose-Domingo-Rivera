@@ -1,0 +1,105 @@
+.box {
+    background-color: rgb(16, 233, 204);
+    display: grid;
+    grid-template-columns: 1fr;
+    outline: 3px solid #080601;
+    gap: 1.5rem; 
+    padding: 1rem;
+    max-width: 330px;
+    animation: move 2s infinite alternate;
+    margin-bottom: 20px;
+    
+    
+    
+}
+
+
+
+.box:hover {
+    transform: rotate(180deg);
+    transition: transform 0.5s ;
+    
+
+    
+
+}
+.box2 {
+    background-color: red;
+    display: grid;
+    grid-template-columns: 5fr; 
+    outline: 3px solid #080601;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 330px;
+    margin-bottom: 20px;
+    
+}
+.box2:hover {
+    transform: rotate(180deg);
+    transition: transform 0.5s ;
+
+}
+.box3 {
+    background-color: blue;
+    display: grid;
+    grid-template-columns: 1fr; 
+    outline: 3px solid #080601;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 768px;
+    margin-bottom: 20px;
+    
+}
+.box3:hover {
+    transform: rotate(180deg);
+    transition: transform 0.5s ;
+
+}
+.box4 {
+    background-color: yellow;
+    outline: 3px solid #080601;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 768px;
+    margin-bottom: 20px;
+    
+}
+.box4:hover {
+    transform: rotate(180deg);
+    transition: transform 0.5s ;
+
+}
+.box5 {
+    background-color: purple;
+    display: grid;
+    grid-template-columns: 1fr; 
+    outline: 3px solid #080601;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1440px;
+    margin-bottom: 20px;
+    
+}
+.box5:hover {
+    transform: rotate(180deg);
+    transition: transform 0.5s ;
+
+}
+.box6 {
+    background-color: orange;
+    display: grid;
+    grid-template-columns: 1fr; 
+    outline: 3px solid #080601;
+    gap: 1.5rem;
+    padding: 1rem;
+    max-width: 1440px;
+    margin-bottom: 20px;
+    
+}
+.box6:hover {
+    transform: rotate(180deg);
+    transition: transform 0.5s ;
+
+}
