@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero</title>
+</head>
+<body>
+    
+    <h2>Tablero de Tareas</h2>
+    <label>Nombre de la tarea: </label>
+    <input type="text" id="nombreTarea" placeholder="Ingrese el nombre de la tarea">
+    <select id="prioridadTarea">
+        <option value="alta">Alta</option>
+        <option value="media">Media</option>
+        <option value="baja">Baja</option>
+    </select>
+    <button> onclick="agregarTarea()">Agregar Tarea</button>
+    <button onclick="borrarTodo()">Borrar Todo</button>
+    <ul id="listaTareas"></ul>
+</input>
+    
+
+
+
+
+
+    <script>
+        function mostrarTareas() {
+            let ul = document.getElementById('listaTareas');
+            ul.innerHTML = "";
+
+            lista_tareas.forEach(t => {
+                let li = document.createElement('li');
+                li.textContent = `${t.tarea} [Prioridad: ${t.prioridad}]`;
+                ul.appendChild(li);
+            });
+        }
+        function borrarTodo() {
+            if (confirm("¿Estás seguro de que deseas borrar todas las tareas?")) {
+                lista_tareas = [];
+                guardar();
+                mostrarTareas();
+            }
+        }
+        function agregarTarea() {
+            let texto = document.getElementById('nombreTarea').value.trim();
+            let prioridad = document.getElementById('prioridadTarea').value;
+            let nueva = {
+                id: Date.now(),
+                tarea: texto,
+                fecha: new Date().toLocaleDateString(),
+                prioridad: prioridad,
+                completada: false
+            };
+
+            lista_tareas.push(nueva);
+            guardar();
+            mostrarTareas();
+            document.getElementById('nombreTarea').value = "";
+            console.log("Tarea agregada:", lista_tareas);
+
+
+
+        }
+        let lista_tareas = [
+            {id: 1, tarea: "Tarea 1", fecha: "09/06/2024", prioridad: "alta", completada: false},
+            {id: 2, tarea: "Tarea 2", fecha: "10/06/2024", prioridad: "media", completada: false},
+            {id: 3, tarea: "Tarea 3", fecha: "11/06/2024", prioridad: "baja", completada: true},
+            ]
+            guardar();
+        console.log("La lista original es:", lista_tareas);
+        
+        const nueva_tarea = {id: 4, tarea: "Tarea 4", fecha: "12/06/2024", prioridad: "alta", completada: false};
+        
+
+        lista_tareas.push(nueva_tarea);
+        guardar();
+        console.log("La lista después de agregar una nueva tarea es:", lista_tareas);
+        const alta = lista_tareas.filter(tarea => tarea.prioridad === "alta");
+        console.log("Las tareas con prioridad alta son:", alta);
+        const media = lista_tareas.filter(tarea => tarea.prioridad === "media");
+        console.log("Las tareas con prioridad media son:", media);
+        const baja = lista_tareas.filter(tarea => tarea.prioridad === "baja");
+        console.log("Las tareas con prioridad baja son:", baja);
+
+        function guardar() {
+            localStorage.setItem('tareas', JSON.stringify(lista_tareas));
+        }
+        function cargar() {
+            return JSON.parse(localStorage.getItem('tareas')) ?? [];
+        }
+
+
+
+
+
+
+
+    </script>
+    
+    
+</body>
+</html>
