@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            function guardar() {
+            localStorage.setItem("guardarTareas", JSON.stringify(tareas));
+            cargar();
+        }
+
+    </script>
+    
+</body>
+</html>
+
+// Aqui agregamos la funcion de "Guardar", esta funcion lo que realiza es que guarda los objetos en el localStorage de la pagina, (en el apartado de apliccation cuando presionamos F12)

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas asignadas</title>
+    <style type="text/css">
+        body {
+            color: black;
+            background-color: white;
+            background-image: url(https://img.magnific.com/foto-gratis/papeles-blanco-aislados-superficie-gris_114579-34409.jpg?semt=ais_hybrid&w=740&q=80);
+            background-size: cover;
+        }
+        #titulo {
+            font-size: 30px;
+            text-align: center;
+            height: 100%;
+            font-family: "Bauhaus 93", sans-serif;
+        }
+        .texto1 {
+            font-size: 20px;
+            font-family: "Arial Black", sans-serif;
+            text-align: center;
+            height: 100px;
+        }
+        .texto2 {
+            font-size: 20px;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+        .confirmacion {
+            display: none;
+            color: green;
+        }
+        .boton1 {
+            font-weight: 200px;
+
+        }
+    </style>
+</head>
+<body>
+    <section id="titulo">
+        <h1>Control de tareas</h1>
+    </section>
+    
+    <section id="proyectos">
+        <div class="texto1">
+            <p>Aqui podras añadir tareas a tu agenda, para llevar un control de ellas.</p>
+        </div>
+    </section>
+
+    <section id="Tareas">
+        <div class="texto2">
+            <h2>Tareas</h2>
+            <input type="text" id="tarea" placeholder="Escribe una tarea">
+            <button id="boton" class = "boton1">Agregar</button>
+            <select id="opciones">
+                <option value="Completadas">Completada</option>
+                <option value="Pendiente">Pendiente</option>
+            </select>
+
+            <ul id="lista"></ul>
+            <div id="mensaje_error" class="error">Escribe una tarea valida</div>
+            <div id="mensaje_confirmacion" class="confirmacion">Tarea Agregada</div>
+        </div>
+    </section>
+
+    <script>
+        const inputtarea = document.getElementById("tarea");
+        const inputboton = document.getElementById("boton");
+        const inputlista = document.getElementById("lista");
+        const selectopciones = document.getElementById("opciones");
+        const mensaje_error = document.getElementById("mensaje_error");
+        const mensaje_confirmacion = document.getElementById("mensaje_confirmacion");
+        
+        let tareas = JSON.parse(localStorage.getItem("guardarTareas")) || [];
+        cargar();
+
+        inputboton.addEventListener("click", function() {
+            let textot = inputtarea.value;
+            if (textot === "") {
+                mensaje_error.style.display = "block";
+                mensaje_confirmacion.style.display = "none";
+                return;
+            }
+            mensaje_error.style.display = "none";
+            mensaje_confirmacion.style.display = "block";
+
+            let nueva = {
+                texto: textot,
+                completada: false
+            };
+            tareas.push(nueva);
+            guardar();
+            inputtarea.value = "";
+        });
+
+        function guardar() {
+            localStorage.setItem("guardarTareas", JSON.stringify(tareas));
+            cargar();
+        }
+
+        function cargar() {
+            inputlista.innerHTML = "";
+    
+        for (let i = 0; i < tareas.length; i++) {
+        let textoDeLaTarea = tareas[i];
+        
+        let li = document.createElement("li");
+        li.textContent = textoDeLaTarea;
+
+            }
+        }
+
+
+    </script>
+</body>
