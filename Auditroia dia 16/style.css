@@ -1,0 +1,14 @@
+body {
+    background-color: moccasin;
+    font-family: Bahnschrift SemiBold SemiConden;
+}
+header{
+    text-align: center;
+    font-size: large;
+}
+#bot{
+
+    font-size: large;
+    text-align: left;
+    font-weight: 200;
+}
