@@ -1,53 +1,89 @@
-body{
+body {
     background-color: bisque;
+    margin: 0;
+    padding: 0;
 }
-header{
-    text-align: center;
 
+header {
+    text-align: center;
 }
-#parrafo{
+
+#parrafo {
     text-align: center;
     font-size: large;
 }
-.columnas{
+
+
+.columnas {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between; 
-    align-items: flex-start;        
-    gap: 40px;                     
-    max-width: 1000px;           
-    margin: 30px auto 0 auto;      
-    padding: 0 20px;
-}
-.lista, #formulario {
-    flex: 1;
+    flex-direction: column; 
+    gap: 20px;
+    max-width: 1000px;
+    margin: 20px auto 0 auto;
+    padding: 0 15px;
 }
 
+.lista, #formulario {
+    width: 100%;
+}
 
 #formulario {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center; 
     gap: 10px;
 }
 
 #formulario input, 
 #formulario button {
-    width: 280px;          
+    max-width: 300px; 
     box-sizing: border-box;
+    padding: 10px;
 }
-.lista  {
-    text-align: left;   
-    margin-left: 0;     
-    padding-left: 0;     
+
+.lista {
+    text-align: left;
+    margin-left: 0;
+    padding-left: 20px; 
 }
-#resultado{
+
+#resultado {
     margin-top: 12px;
-    width: 100%;            
-    text-align: right;       
+    width: 100%;
+    text-align: center; 
     font-weight: bold;
     font-size: 1.05rem;
-
-
 }
 
+
+@media (min-width: 768px) {
+    .columnas {
+        flex-direction: row-reverse; 
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+
+    .lista, #formulario {
+        flex: 1;
+    }
+
+    #formulario {
+        align-items: flex-end; 
+    }
+
+    #formulario input, 
+    #formulario button {
+        width: 280px;
+    }
+
+    .lista {
+        padding-left: 0;
+    }
+
+    #resultado {
+        text-align: right;
+    }
+}
