@@ -1,0 +1,49 @@
+/*Diseño de la pagina (css)*/
+body{
+    
+  margin: 0;
+  min-height: 100vh;
+  
+  background: radial-gradient(circle at center, #1f2937 0%, #111827 100%);
+  background-attachment: fixed;
+  color: #f3f4f6; 
+
+
+}
+p{
+    font-size: 20px;
+    color: aliceblue;
+}
+#titulo{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h1{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: beige;
+    }
+h2{
+    
+    color:beige;
+    font-size: large;
+    font-style: normal;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+h4 { 
+    color: aliceblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.columnas {
+  display: flex;
+  width: 100%;
+}
+#Completada {
+  margin-left: auto;
+}
+#pendientes{
+    margin-right: auto;
+}
+#boton1, #boton2{
+    margin-top: 30px;
+}

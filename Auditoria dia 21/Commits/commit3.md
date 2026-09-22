@@ -1,0 +1,1 @@
+// La logica que use en el programa de Java Script, fue usar DOM (Document Object Model) lo cual se demuestra que en la estructura de html se incluyen botones e inputs. En java script se trabaja obteniendo los datos de esos objetos.

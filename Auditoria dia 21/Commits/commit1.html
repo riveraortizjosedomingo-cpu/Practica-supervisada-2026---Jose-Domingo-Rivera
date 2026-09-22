@@ -1,0 +1,48 @@
+
+<!-- Estructura de la pagina -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de tareast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="titulo">
+    <h1>Control de tareas</h1>
+    <p><em>Esta pagina web busca que los estudiantes lleven <br>un control mas organizado sobre sus actividades</em></p>
+    <p><em>A continuación tendras dos opciones a las cuales marcar<br>se adaptaran a tus necesidades y se mostrara una lista<br>de pendientes o de completadas.</em></p>
+    </div>
+<div class="columnas">
+    <div id="pendientes">
+    <h2><strong>Tareas pendientes</strong></h2>
+    <p><em>¿Cuales son tus tareas pendientes?</em></p>
+    <hr>
+    <form id = "boton1">
+        <input type="text" id="input_pendiente" placeholder="Ingrese su tarea pendiente">
+        <button type="button" id="btnpendiente">Pendiente</button>
+        
+    </form>
+    <ul id="lista_pendiente">
+
+    </ul>
+    </div>
+
+    <div id = "Completada">
+    <h2><strong>Tareas Completadas</strong></h2>
+    <p><em>¿Cuales tareas has completado?</em></p>
+    <hr>
+    <form id = "boton2">
+        <input type="text" id="input_completado" placeholder="Ingrese su tarea completada">
+        <button type="button" id="btncompletado">Completada</button> 
+        
+    </form>
+    <ul id ="lista_completada">
+        
+    </ul>
+    </div>
+</div>
+</body>
+<script src="main.js"></script>
+</html>
