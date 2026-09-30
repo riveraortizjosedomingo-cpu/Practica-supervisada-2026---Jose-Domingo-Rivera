@@ -1,0 +1,24 @@
+body{
+    background-color: paleturquoise;
+
+    background-size:cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+input{
+    width: 300px;
+}
+footer{
+    margin-top: 400px;
+}
+.contenedor{
+    display: flex;
+    gap: 400px;
+    padding: 20px;
+}
+button, select, input{
+    border: 2px solid black;
+}
+li{
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

@@ -1,0 +1,30 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color:lightblue;
+}
+.informacion{
+    margin-left: 300px;
+    margin-right: 100px;
+    margin-top: -150px;
+}
+#jugador2 p{
+    text-align: right;
+    margin-right: 300px;
+    margin-left: -200px;
+}
+#jugador2 h2{
+    text-align: right;
+    margin-right: 300px;
+}
+#jugador2 img{
+    
+    border: 8px solid black;
+    border-radius: 20px;
+    margin-left: 1100px;
+    margin-right: 100px;
+}
+.imagen img{
+    border-radius: 20px;
+    margin-left: 100px;
+    border: 8px solid black;
+}

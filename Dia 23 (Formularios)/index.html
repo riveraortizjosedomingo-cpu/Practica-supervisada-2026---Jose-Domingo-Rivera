@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Ficha de inscripción</h1>
+    <h4>Nombre</h4>
+    <input  id="nombre" type="text" placeholder="Ingrese su nombre...">
+  
+    <div id="fecha">
+    <h4>Fecha de nacimiento</h4>
+    <input id="inputedad" type="date" placeholder="Fecha de nacimiento..." > 
+    </div>
+    <h4>Equipo</h4>
+    <select id ="select1">
+        <option value="Barca">Barcelona</option>
+        <option value="RealMadrid">Real Madrid</option>
+        <option value="BayernMunich">Bayern Munich</option>
+    </select>
+
+    
+    <button id="btnfecha"type="button">Enviar</button>
+    <button id="btnquitar" type="button">Eliminar dato</button>
+    <button id="btnborrar" type="button">Borrar todo</button>
+    <div id="resultado"></div>
+    <div id="resul1"></div>
+    <div class="contenedor">
+    <div id="listabarca">
+    <h4>Barcelona FC</h4>
+    <ul id="lista-barca"></ul>
+    </div>
+    <div id="listareal" >
+    <h4>Real Madrid FC</h4>
+    <ul id="lista-real" ></ul>
+    </div>
+    <div id="listabayern" >
+    <h4>Bayern Munich FC</h4>
+    <ul id="lista-bayern"></ul>
+    </div>
+    </div>
+    
+
+<footer>
+    <h4>Federación de deportes de Guatemala</h4>
+</footer>
+<script src="main.js"></script>
+    
+</body>
+</html>
