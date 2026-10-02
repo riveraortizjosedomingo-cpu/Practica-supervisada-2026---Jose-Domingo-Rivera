@@ -19,7 +19,16 @@ btnfecha.addEventListener("click", function () {
     let edad = hoy.getFullYear() - fechadenacimiento.getFullYear();
     if(edad>=16){
         const elemento = document.createElement("li");
+
         elemento.textContent = nombre + " - " + edad + " años";
+            
+        const btneliminar = document.createElement("button");
+        btneliminar.textContent = "-";
+        btneliminar.addEventListener("click", function () {
+       
+            elemento.remove();
+        });
+        elemento.appendChild(btneliminar);
         if (equipo == "Barca") {
             listabarca.appendChild(elemento);
         } else if (equipo == "RealMadrid") {
@@ -37,18 +46,6 @@ btnfecha.addEventListener("click", function () {
         mensaje2.textContent = "LLene los datos que se solicitan."
     }
 });
-eliminardato.addEventListener("click", function () {
-    const equipo = select.value;
-
-    if (equipo === "Barca" && listabarca.lastElementChild) {
-        listabarca.lastElementChild.remove();
-    } else if (equipo === "RealMadrid" && listareal.lastElementChild) {
-        listareal.lastElementChild.remove();
-    } else if (equipo === "BayernMunich" && listabayern.lastElementChild) {
-        listabayern.lastElementChild.remove();
-    }
-});
-
 
 btnborrar.addEventListener("click", function () {
     if (inputfecha.value==""||inputnombre.value==""){

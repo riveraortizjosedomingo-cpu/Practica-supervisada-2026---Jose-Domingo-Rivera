@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina el Pokémon</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f9;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 3-) Clase para añadir el filtro oscuro */
+    .oscurito {
+      filter: brightness(0);
+      transition: filter 0.3s ease;
+    }
+
+    .pokemon-img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ffcb05;
+      color: #2a75bb;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6b800;
+    }
+
+    #mensaje {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>¿Quién es este Pokémon?</h1>
+
+    <!-- 2-) Renderizar información en HTML -->
+    <div id="pokemon-container">
+      <!-- La imagen se renderiza dinámicamente -->
+    </div>
+
+    <!-- 4-) Campo (input) para adivinar -->
+    <div>
+      <input type="text" id="input-nombre" placeholder="Escribe el nombre...">
+      <button onclick="comprobarRespuesta()">Adivinar</button>
+    </div>
+
+    <p id="mensaje"></p>
+    <button onclick="obtenerPokemonAleatorio()" style="margin-top: 10px; background-color: #2a75bb; color: white;">Siguiente Pokémon</button>
+  </div>
+
+  <script>
+    let nombreCorrecto = "";
+
+    // 1-) Petición fetch usando .then() sincrónico en cadena (sin async/await)
+    function obtenerPokemonAleatorio() {
+      // Limpiar campos
+      document.getElementById('mensaje').innerText = "";
+      document.getElementById('input-nombre').value = "";
+
+      const idAleatorio = Math.floor(Math.random() * 151) + 1;
+
+      fetch("https://pokeapi.co/api/v2/pokemon/" + idAleatorio)
+        .then(function(respuesta) {
+          return respuesta.json();
+        })
+        .then(function(data) {
+          nombreCorrecto = data.name.toLowerCase();
+
+          // 2-) Renderizar la imagen y 3-) Aplicar la clase con el filtro oscuro
+          const container = document.getElementById('pokemon-container');
+          container.innerHTML = `
+            <img 
+              id="pokemon-img" 
+              class="pokemon-img oscurito" 
+              src="${data.sprites.other['official-artwork'].front_default}" 
+              alt="Pokémon oculto"
+            >
+          `;
+        })
+        .catch(function(error) {
+          console.error("Error al obtener el Pokémon:", error);
+        });
+    }
+
+    // 4-) Lógica para adivinar el nombre
+    function comprobarRespuesta() {
+      const intentoUsuario = document.getElementById('input-nombre').value.trim().toLowerCase();
+      const img = document.getElementById('pokemon-img');
+      const mensaje = document.getElementById('mensaje');
+
+      if (!intentoUsuario) return;
+
+      if (intentoUsuario === nombreCorrecto) {
+        // Quitar la clase del filtro oscuro para revelar la imagen
+        img.classList.remove('oscurito');
+        mensaje.style.color = "green";
+        mensaje.innerText = "¡Correcto! Es " + nombreCorrecto.toUpperCase() + " 🎉";
+      } else {
+        mensaje.style.color = "red";
+        mensaje.innerText = "¡Incorrecto! Intenta de nuevo. ❌";
+      }
+    }
+
+    // Cargar un Pokémon al iniciar la página
+    obtenerPokemonAleatorio();
+  </script>
+
+</body>
+</html>
