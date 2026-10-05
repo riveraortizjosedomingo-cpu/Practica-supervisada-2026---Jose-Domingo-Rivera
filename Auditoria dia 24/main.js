@@ -35,7 +35,7 @@ botonVerificar.addEventListener("click", function() {
   }
 
 })
-botonSiguiente.addEventListener("click", function() {
+botonSiguiente.addEventListener("click", function() {                                                     
   obtenerPokemonAleatorio();
   inputRespuesta.value = "";
   mensaje.innerHTML = "";
