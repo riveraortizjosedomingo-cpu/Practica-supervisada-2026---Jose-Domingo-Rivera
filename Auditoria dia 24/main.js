@@ -2,6 +2,7 @@ const inputRespuesta = document.getElementById("respuesta");
 const botonVerificar = document.getElementById("verificar");
 const imagenPokemon = document.getElementById("imagen-pokemon");
 const botonSiguiente = document.getElementById("siguiente");
+const mensaje = document.getElementById("mensaje");
 function obtenerPokemonAleatorio() {
     const numeroPokemon = Math.floor(Math.random() * 151) + 1;
     fetch(`https://pokeapi.co/api/v2/pokemon/${numeroPokemon}`)
@@ -22,21 +23,21 @@ function obtenerPokemonAleatorio() {
 botonVerificar.addEventListener("click", function() {
   const verificar = inputRespuesta.value;
   if (verificar === PokemonNombre) {
-    document.getElementById("mensaje").innerHTML = "¡Correcto! Es " + PokemonNombre;
+    mensaje.innerHTML = "Correcto, Es " + PokemonNombre;
     imagenPokemon.style.filter = "brightness(1)";
     imagenPokemon.style.width = "200px";
     imagenPokemon.style.height = "150px";
   } else if (verificar === "") {
-    document.getElementById("mensaje").innerHTML = "Por favor, ingresa una respuesta.";
+    mensaje.innerHTML = "Por favor, ingresa una respuesta.";
   } else {
     inputRespuesta.value = "";
-    document.getElementById("mensaje").innerHTML = "Incorrecto. Intenta de nuevo.";
+    mensaje.innerHTML = "Incorrecto. Intenta de nuevo.";
   }
 
 })
 botonSiguiente.addEventListener("click", function() {
   obtenerPokemonAleatorio();
   inputRespuesta.value = "";
-  document.getElementById("mensaje").innerHTML = "";
+  mensaje.innerHTML = "";
   console.clear();
 })
